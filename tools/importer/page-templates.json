@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "fashion-trends",
+      "urls": [
+        "https://wknd-trendsetters.site/fashion-trends-of-the-season"
+      ],
+      "representativeUrl": "https://wknd-trendsetters.site/fashion-trends-of-the-season",
+      "coverageGaps": [],
+      "description": "Fashion trends editorial landing page with hero, trend alert feature, trend cards grid, image gallery, and newsletter CTA",
+      "blocks": [
+        {
+          "name": "hero-feature",
+          "instances": [
+            "#main-content > header.section.secondary-section > div.container > div.grid-layout.tablet-1-column.grid-gap-xxl"
+          ]
+        },
+        {
+          "name": "columns-feature",
+          "instances": [
+            "#trends > div.container > div.grid-layout.tablet-1-column.grid-gap-lg"
+          ]
+        },
+        {
+          "name": "cards-trend",
+          "instances": [
+            "#main-content > section.section.secondary-section > div.container > div.grid-layout.desktop-3-column.tablet-1-column.grid-gap-lg"
+          ]
+        },
+        {
+          "name": "cards-gallery",
+          "instances": [
+            "#main-content > section.section:nth-of-type(3) > div.container > div.grid-layout.desktop-3-column.tablet-2-column-1.mobile-portrait-1-column.grid-gap-sm"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc2",
+          "name": "Hero / page header",
+          "selector": "#main-content > header.section.secondary-section",
+          "style": null,
+          "blocks": ["hero-feature"],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "Trend alert feature",
+          "selector": "#trends",
+          "style": null,
+          "blocks": ["columns-feature"],
+          "defaultContent": [
+            "#trends > div.container > div.utility-text-align-center > h2.h2-heading",
+            "#trends > div.container > div.utility-text-align-center > p.paragraph-lg"
+          ]
+        },
+        {
+          "id": "rc4",
+          "name": "Trends that turn heads",
+          "selector": "#main-content > section.section.secondary-section",
+          "style": null,
+          "blocks": ["cards-trend"],
+          "defaultContent": [
+            "#main-content > section.section.secondary-section > div.container > div.utility-text-align-center > h2.h2-heading"
+          ]
+        },
+        {
+          "id": "rc5",
+          "name": "Style in every snapshot",
+          "selector": "#main-content > section.section:nth-of-type(3)",
+          "style": null,
+          "blocks": ["cards-gallery"],
+          "defaultContent": [
+            "#main-content > section.section:nth-of-type(3) > div.container > div.utility-text-align-center.utility-margin-bottom-8rem > h2.h2-heading",
+            "#main-content > section.section:nth-of-type(3) > div.container > div.utility-text-align-center.utility-margin-bottom-8rem > p.paragraph-lg"
+          ]
+        },
+        {
+          "id": "rc6",
+          "name": "Newsletter CTA",
+          "selector": "#main-content > section.section.accent-section",
+          "style": "accent",
+          "blocks": [],
+          "defaultContent": [
+            "#main-content > section.section.accent-section > div.container"
+          ]
+        }
+      ]
+    }
+  ]
+}

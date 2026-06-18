@@ -34,6 +34,18 @@
     ]
   },
   {
+    "id": "cards-gallery",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "cards-trend",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"
@@ -43,6 +55,21 @@
     "id": "carousel",
     "components": [
       "carousel-item"
+    ]
+  },
+  {
+    "id": "columns-feature",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {

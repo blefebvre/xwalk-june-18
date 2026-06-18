@@ -7,7 +7,8 @@
       "aemSitePath": "/content/blefebvr-xwalk-june-18",
       "aemAssetsFolderPath": "/content/dam/blefebvr-xwalk-june-18",
       "aemSiteName": "blefebvr-xwalk-june-18",
-      "aemSiteTitle": "blefebvr-xwalk-june-18"
+      "aemSiteTitle": "blefebvr-xwalk-june-18",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
     }
   },
   "type": "xwalk"
