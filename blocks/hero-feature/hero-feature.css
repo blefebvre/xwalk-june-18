@@ -1,37 +1,152 @@
-.hero-feature-container .hero-feature-wrapper {
-  max-width: unset;
-  padding: 0;
+/* hero-feature: two-column hero. Text left, 3 stacked images right. */
+
+/* Full-width: let the block use the section content width without extra constraint */
+.hero-feature-wrapper {
+  max-width: 100%;
 }
 
+/* Mobile-first: single column, text first then images */
 .hero-feature {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: var(--text-color);
 }
 
-.hero-feature h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+/* Rows: 1-3 = image cells, 4 = text cell */
+.hero-feature > div {
+  margin: 0;
 }
 
+.hero-feature > div > div {
+  margin: 0;
+}
+
+/* Images */
 .hero-feature picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  display: block;
+  line-height: 0;
 }
 
 .hero-feature img {
-  object-fit: cover;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  border-radius: 20px;
 }
 
+.hero-feature > div picture > img {
+  margin: 0;
+}
+
+/* The picture-wrapping <p> EDS inserts */
+.hero-feature > div p {
+  margin: 0;
+}
+
+/* Text cell (last row) */
+.hero-feature h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  font-family: var(--heading-font-family);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.hero-feature > div:last-child p:not(.button-container) {
+  font-size: var(--body-font-size-m);
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 24px 0 0;
+}
+
+/* Buttons: pill-shaped, primary (filled) + secondary (outline) */
+.hero-feature > div:last-child .button-container {
+  display: inline-block;
+  margin: 0;
+}
+
+.hero-feature > div:last-child .button-container:first-of-type {
+  margin-top: 32px;
+}
+
+.hero-feature a.button:any-link {
+  margin: 0;
+  border: 2px solid var(--text-color);
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hero-feature a.button:hover {
+  text-decoration: none;
+}
+
+/* First CTA = primary (filled dark), second = secondary (outline) */
+.hero-feature > div:last-child .button-container:nth-of-type(1) a.button:any-link {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.hero-feature > div:last-child .button-container:nth-of-type(2) a.button:any-link {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Desktop: text left column, 3 images right in a 2-col x 2-row arrangement.
+   The block has 4 EDS rows: 3 image rows + 1 text row. */
 @media (width >= 900px) {
+  /* 3 tracks: left text column (1fr) + two image columns (0.5fr each).
+     The two image columns together equal the text column width, matching the
+     source 544px text / 544px image (2x268) layout. */
   .hero-feature {
-    padding: 40px 32px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 0.5fr);
+    grid-template-rows: auto auto;
+    gap: 8px;
+    align-items: start;
+  }
+
+  /* Text cell: left column, spans both image rows, vertically centered.
+     56px padding + 8px column-gap ~= the 64px source gutter. */
+  .hero-feature > div:last-child {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: center;
+    padding-right: 56px;
+  }
+
+  /* Image 1 -> top-left (col 2, row 1) */
+  .hero-feature > div:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  /* Image 2 -> top-right (col 3, row 1) */
+  .hero-feature > div:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  /* Image 3 -> bottom-left (col 2, row 2) */
+  .hero-feature > div:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* Buttons inline on desktop */
+  .hero-feature > div:last-child .button-container {
+    margin-right: 16px;
   }
 }

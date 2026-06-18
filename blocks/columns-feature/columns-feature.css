@@ -1,12 +1,24 @@
+/* Block: columns-feature
+ * Two-column feature: image left, text right (h3 + p + CTA).
+ * Values extracted from source computed styles
+ * (#trends > div.container > div.grid-layout.tablet-1-column.grid-gap-lg).
+ */
+
 .columns-feature > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .columns-feature img {
+  display: block;
   width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  aspect-ratio: 1.5; /* source image 564 x 376 */
 }
 
+/* image column ordered first on mobile */
 .columns-feature > div > div {
   order: 1;
 }
@@ -15,14 +27,49 @@
   order: 0;
 }
 
-.columns-feature > div > .columns-feature-img-col img {
-  display: block;
+.columns-feature h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l); /* 32px desktop */
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.columns-feature p {
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 28.8px;
+  color: rgb(64 64 64);
+}
+
+/* pill CTA button -- overrides global square button */
+.columns-feature p.button-container {
+  margin: 24px 0 0;
+}
+
+.columns-feature a.button:any-link {
+  margin: 0;
+  border: 2px solid var(--text-color);
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.columns-feature a.button:hover {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 @media (width >= 900px) {
   .columns-feature > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
     gap: 24px;
   }
 
